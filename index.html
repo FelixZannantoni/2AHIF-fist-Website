@@ -1,10 +1,23 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>2AHIF rocks</title>
-    </head>
-    <body>
-        <span>2AHIF is better than 2BHIF</span>
-        <br>
-        <span>Zweite Zeile</span>
-    </body>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <h2>Please Login</h2>
+    <form action="/submit-login" method="POST">
+        <label for="username">Please enter Username:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Please enter Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <input type="submit" value="Login">
+    </form>
+</body>
 </html>
