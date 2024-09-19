@@ -1,19 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <style>
-        body {
+        body
+        {
+            margin: 0;
+            height: 100vh;
             background-color: lightblue;
-            text-align: center;
+            position: relative;
         }
+
+        .LoginBox 
+        {
+            text-align: center;
+            margin-top: 200px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .box 
+        {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(0, 0, 0, 0.377); 
+            border-radius: 10%; 
+            left: 44%;
+            top: -40px;
+            z-index: -1;
+        }
+
+        .circle1 
+        {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            background-color: rgba(14, 1, 1, 0.938); 
+            border-radius: 100%; 
+            left: -17%;
+            bottom: -17%;
+            z-index: -1;
+        }
+
+        .circle2 
+        {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background-color: rgba(14, 1, 1, 0.938); 
+            border-radius: 100%; 
+            right: -12%;
+            top: -40%;
+            z-index: -1;
+        }
+
     </style>
     <script>
-        function validateForm() {
+        function validateForm() 
+        {
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
 
-            // Überprüfung: Sind Benutzername und Passwort gleich?
+            //Checks if Username and Password are the same
             if (username === password)
             {
                 return true 
@@ -27,6 +78,13 @@
     </script>
 </head>
 <body>
+    <div class="circle1"></div>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="box"></div>
+    
+    <div class = "LoginBox">
     <h2>Login</h2>
     <form onsubmit="return validateForm()">
         <label for="username">Username:</label><br>
@@ -37,5 +95,6 @@
 
         <input type="submit" value="Login">
     </form>
+    <div>
 </body>
 </html>
