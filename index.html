@@ -8,14 +8,31 @@
             text-align: center;
         }
     </style>
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Überprüfung: Sind Benutzername und Passwort gleich?
+            if (username === password)
+            {
+                return true 
+            }
+            else
+            {
+                alert("Wrong Password");
+                return false;
+            }
+        }
+    </script>
 </head>
 <body>
-    <h2>Please Login</h2>
-    <form action="/submit-login" method="POST">
-        <label for="username">Please enter Username:</label><br>
+    <h2>Login</h2>
+    <form onsubmit="return validateForm()">
+        <label for="username">Username:</label><br>
         <input type="text" id="username" name="username" required><br><br>
 
-        <label for="password">Please enter Password:</label><br>
+        <label for="password">Password:</label><br>
         <input type="password" id="password" name="password" required><br><br>
 
         <input type="submit" value="Login">
