@@ -1,86 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Login</title>
+
     <style>
-        body
+        body 
         {
             margin: 0;
             height: 100vh;
-            background-image: url("https://wallpapers.com/images/hd/1920x1080-pictures-zog2vma3qpmt2o9l.jpg"); 
-            background-size: cover; 
-            background-position: center;
-            
-        }   
-        .LoginBox 
-        {
-            text-align: center;
-            margin-top: 200px;
-            position: relative;
-            z-index: 1;
+            background-image: url("https://wallpapers.com/images/hd/1920x1080-pictures-zog2vma3qpmt2o9l.jpg");
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .box 
+        /*A with box so that you can see the Login window*/
+        .login-box 
         {
-            position: absolute;
             width: 300px;
-            height: 300px;
-            background-color: rgba(199, 219, 220, 0.575); 
-            border-radius: 10%; 
-            left: 50%;
-            top: 37%;
-            z-index: -1;
-            transform: translate(-50%, -20%);
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.425); /*The color is white but also see-through*/
+            border-radius: 10px;
+            text-align: center;
         }
 
-        .circle1 
+        .login-box input[type="text"],
+        .login-box input[type="password"] 
         {
-            position: absolute;
-            width: 900px;
-            height: 900px;
-            background-color: rgba(14, 1, 1, 0.938); 
-            border-radius: 100%; 
-            left: -17%;
-            bottom: -17%;
-            z-index: -1;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
         }
 
+        .login-box input[type="submit"] 
+        {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        @media (max-width: 600px) 
+        {
+            .login-box {
+                width: 90%;
+            }
+        }
     </style>
+ 
     <script>
+        /*Checks if the Login information's are correct*/
         function validateForm() 
         {
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
+            var errorMessage = document.getElementById("error-message");
 
-            //Checks if Username and Password are the same
             if (username === password)
             {
-                return true 
-            }
-            else
+                errorMessage.style.display = "none";
+                window.location.href = "success.html";
+                return false;
+            } 
+            else 
             {
-                alert("Wrong Password");
+                errorMessage.style.display = "block";
                 return false;
             }
         }
     </script>
+
 </head>
 <body>
-    <div class="box"></div>
-    
-    <div class = "LoginBox">
-    <h2>Login</h2>
-    <form onsubmit="return validateForm()">
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" required><br><br>
+    <div class="login-box">
+        <h2>Welcome</h2>
+        <form onsubmit="return validateForm()">
+            <input type="text" id="username" name="username" placeholder="Username" aria-label="Username" required><br>
+            <input type="password" id="password" name="password" placeholder="Password" aria-label="Password" required><br>
+            <p id="error-message" style="color: red; display: none;">Wrong Password</p>
+            <input type="submit" value="Login">
 
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
-
-        <input type="submit" value="Login">
-    </form>
-    <div>
+        </form>
+    </div>
 </body>
 </html>
